@@ -1,1 +1,46 @@
-config.yml
+backend:
+  name: github
+  repo: YOUR-GITHUB-USERNAME/YOUR-REPO-NAME   # <-- change this
+  branch: main
+  base_url: https://YOUR-OAUTH-PROXY-URL      # <-- change this (see README)
+  auth_endpoint: auth
+
+media_folder: "images/uploads"
+public_folder: "/images/uploads"
+
+collections:
+  - name: "site"
+    label: "Café-Inhalte"
+    files:
+      - name: "homepage"
+        label: "Startseite"
+        file: "content/site.json"
+        fields:
+          - { label: "Hero: Untertitel", name: "hero_subtitle", widget: "string" }
+          - { label: "Hero: Foto", name: "hero_image", widget: "image" }
+          - { label: "Einleitungstext", name: "intro_text", widget: "text" }
+          - label: "So funktioniert's (3 Schritte)"
+            name: "steps"
+            widget: "list"
+            minimize_collapsed: true
+            fields:
+              - { label: "Titel", name: "title", widget: "string" }
+              - { label: "Text", name: "text", widget: "string" }
+          - { label: "Konzept: Titel", name: "concept_title", widget: "string" }
+          - { label: "Konzept: Text", name: "concept_text", widget: "text" }
+          - { label: "Teilhabe: Titel", name: "teilhabe_title", widget: "string" }
+          - { label: "Teilhabe: Text", name: "teilhabe_text", widget: "text" }
+          - { label: "Werte: Titel", name: "werte_title", widget: "string" }
+          - label: "Werte (Liste)"
+            name: "werte_items"
+            widget: "list"
+            field: { label: "Wert", name: "item", widget: "string" }
+          - { label: "Hinweis: Titel", name: "hinweis_title", widget: "string" }
+          - { label: "Hinweis: Text", name: "hinweis_text", widget: "text" }
+          - { label: "Adresse Zeile 1", name: "address_line1", widget: "string" }
+          - { label: "Adresse Zeile 2", name: "address_line2", widget: "string" }
+          - { label: "Adresse Zeile 3", name: "address_line3", widget: "string" }
+          - { label: "Adresse Zeile 4", name: "address_line4", widget: "string" }
+          - { label: "Adresse Zeile 5", name: "address_line5", widget: "string" }
+          - { label: "Fußzeile: Spruch", name: "footer_text", widget: "string" }
+          - { label: "Fußzeile: Unterschrift", name: "footer_signature", widget: "string" }
