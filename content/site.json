@@ -1,1 +1,39 @@
-
+{
+  "hero_tagline": "Du entscheidest, was es dir wert ist.",
+  "hero_subtitle": "Bio. Regional. Mit Herz.",
+  "hero_image": "/images/uploads/bowl-placeholder.jpg",
+  "intro_text": "Das Fair&Frei Café ist ein besonderer Ort der Begegnung. Unser Ziel ist es, Ihnen in einer entspannten und herzlichen Atmosphäre gesunde, ausgewogene und nahrhafte Mahlzeiten anzubieten. Wir kochen täglich frisch aus vorwiegend regionalen Bio-Produkten.",
+  "steps": [
+    {
+      "title": "Keine festen Preise.",
+      "text": "Du entscheidest selbst, was du zahlst."
+    },
+    {
+      "title": "Spende beim Gehen.",
+      "text": "Eine anonyme Spende in unsere Zauberbox."
+    },
+    {
+      "title": "Gemeinschaft & Vertrauen.",
+      "text": "Wir glauben an ein Miteinander auf Augenhöhe."
+    }
+  ],
+  "concept_title": "Unser Konzept",
+  "concept_text": "Fair&Frei ist ein Gemeinschaftsprojekt, das zum Großteil von Freiwilligen getragen wird. Unsere Philosophie ist es, Ihnen die Entscheidung zu überlassen, was Ihnen unsere Speisen und Getränke wert sind.",
+  "teilhabe_title": "Teilhabe für alle",
+  "teilhabe_text": "Es ist unser Herzensanliegen, dass jeder Mensch Zugang zu gutem Essen hat – völlig unabhängig von der persönlichen finanziellen Situation. Wir möchten den Austausch und das Miteinander von Menschen aus allen Teilen der Gesellschaft fördern.",
+  "werte_title": "Unsere Werte",
+  "werte_items": [
+    "In unserem täglichen Handeln lassen wir uns von unserem Gewissen und dem Glauben an das Gute leiten.",
+    "Wir achten unsere Erde und sind dankbar für alles, was sie uns schenkt.",
+    "Wir möchten aktiv die Veränderung sein, die wir uns für diese Welt wünschen."
+  ],
+  "hinweis_title": "Wichtiger Hinweis",
+  "hinweis_text": "Da wir offiziell als Verein und nicht als gewerbliches Unternehmen organisiert sind, bitten wir Sie höflich, ein kurzes Mitgliedsformular auszufüllen. Es werden nur die nötigsten Angaben benötigt und es fällt selbstverständlich keine Mitgliedsgebühr an. Fühlen Sie sich bei uns ganz wie zu Hause und genießen Sie die Zeit!",
+  "address_line1": "Wengen 15",
+  "address_line2": "87534 Oberstaufen",
+  "address_line3": "Im Fairwurzel Bio-Markt",
+  "address_line4": "Neben dem Knechtenhofen Bahn-Tunnel",
+  "address_line5": "Neben der Eule",
+  "footer_text": "Liebe, Frieden und Freude",
+  "footer_signature": "Ihr Küchenchef Siniša Shyam und das gesamte Team"
+}
