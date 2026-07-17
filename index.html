@@ -1,0 +1,547 @@
+<!DOCTYPE html>
+<html lang="de">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Fair&amp;Frei — Bio-Café auf Spenden-Basis</title>
+<meta name="description" content="Fair&Frei Bio-Café in Oberstaufen — du entscheidest, was dir dein Essen wert ist.">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link href="https://fonts.googleapis.com/css2?family=Fredoka:wght@500;600;700&family=Caveat:wght@600;700&family=Nunito+Sans:wght@400;600;700&display=swap" rel="stylesheet">
+<style>
+  :root{
+    --purple-deep:#4A2472;
+    --purple-mid:#6B3FA0;
+    --green-leaf:#8BC53F;
+    --cream:#FBF6EC;
+    --berry:#C0344C;
+    --ink:#2E1B3D;
+    --wave-h: 90px;
+  }
+  *{box-sizing:border-box;}
+  html{scroll-behavior:smooth;}
+  body{
+    margin:0;
+    font-family:'Nunito Sans', sans-serif;
+    color:var(--ink);
+    background:var(--cream);
+    -webkit-font-smoothing:antialiased;
+  }
+  h1,h2,h3,.display{
+    font-family:'Fredoka', sans-serif;
+    margin:0;
+  }
+  .script{
+    font-family:'Caveat', cursive;
+  }
+  a{color:inherit;}
+  .wrap{
+    max-width:1040px;
+    margin:0 auto;
+    padding:0 24px;
+  }
+
+  /* ---------- Hero ---------- */
+  .hero{
+    background:var(--purple-deep);
+    color:var(--cream);
+    position:relative;
+    overflow:hidden;
+    padding:56px 0 calc(var(--wave-h) + 40px);
+  }
+  .hero .wrap{
+    display:grid;
+    grid-template-columns: 1.1fr 1fr;
+    gap:40px;
+    align-items:center;
+  }
+  .brand{
+    display:flex;
+    align-items:center;
+    gap:14px;
+    margin-bottom:36px;
+  }
+  .brand .leaf-mark{
+    width:52px;height:52px;
+    border-radius:50%;
+    border:3px solid var(--green-leaf);
+    display:flex;align-items:center;justify-content:center;
+  }
+  .brand .leaf-mark svg{width:26px;height:26px;}
+  .brand-name{
+    font-size:1.5rem;
+    font-weight:700;
+    letter-spacing:0.02em;
+    color:var(--green-leaf);
+  }
+  .hero-tagline{
+    font-size:clamp(2.2rem, 5vw, 3.4rem);
+    line-height:1.15;
+    margin-bottom:18px;
+  }
+  .hero-tagline .accent{color:var(--green-leaf);}
+  .hero-subtitle{
+    font-size:1.25rem;
+    opacity:0.9;
+    margin-bottom:28px;
+  }
+  .hero-cta{
+    display:inline-flex;
+    align-items:center;
+    gap:10px;
+    background:var(--green-leaf);
+    color:var(--purple-deep);
+    font-family:'Fredoka',sans-serif;
+    font-weight:600;
+    padding:14px 28px;
+    border-radius:999px;
+    text-decoration:none;
+    transition:transform .15s ease, box-shadow .15s ease;
+  }
+  .hero-cta:hover{transform:translateY(-2px); box-shadow:0 10px 24px rgba(0,0,0,.25);}
+  .hero-image-wrap{
+    position:relative;
+    border-radius:28px;
+    overflow:hidden;
+    aspect-ratio:4/3;
+    background:linear-gradient(135deg,#5c2f8c,#3a1c5c);
+    display:flex;align-items:center;justify-content:center;
+    box-shadow:0 20px 50px rgba(0,0,0,.35);
+  }
+  .hero-image-wrap img{width:100%;height:100%;object-fit:cover;display:block;}
+  .hero-image-wrap .placeholder-note{
+    color:rgba(255,255,255,.55);
+    font-size:.85rem;
+    text-align:center;
+    padding:20px;
+  }
+  .badge-forall{
+    position:absolute;
+    bottom:-18px;right:-18px;
+    background:var(--green-leaf);
+    color:var(--purple-deep);
+    width:118px;height:118px;
+    border-radius:50%;
+    display:flex;align-items:center;justify-content:center;
+    text-align:center;
+    font-family:'Fredoka',sans-serif;
+    font-weight:600;
+    font-size:.8rem;
+    line-height:1.25;
+    box-shadow:0 10px 24px rgba(0,0,0,.3);
+    transform:rotate(-8deg);
+  }
+
+  .wave{
+    position:absolute;
+    left:0;bottom:-1px;width:100%;
+    height:var(--wave-h);
+    line-height:0;
+  }
+  .wave svg{width:100%;height:100%;display:block;}
+
+  /* ---------- Steps ---------- */
+  .section{padding:72px 0;}
+  .section-heading{
+    font-size:2rem;
+    text-align:center;
+    margin-bottom:8px;
+  }
+  .section-kicker{
+    display:block;
+    text-align:center;
+    font-family:'Fredoka',sans-serif;
+    font-weight:600;
+    color:var(--purple-mid);
+    text-transform:uppercase;
+    letter-spacing:.12em;
+    font-size:.78rem;
+    margin-bottom:10px;
+  }
+  .intro-text{
+    max-width:640px;
+    margin:18px auto 56px;
+    text-align:center;
+    font-size:1.1rem;
+    line-height:1.6;
+    color:#4a3560;
+  }
+  .steps-grid{
+    display:grid;
+    grid-template-columns:repeat(3,1fr);
+    gap:24px;
+  }
+  .step-card{
+    background:#fff;
+    border:2px solid #eee0f5;
+    border-radius:22px;
+    padding:28px 24px;
+    text-align:left;
+  }
+  .step-icon{
+    width:52px;height:52px;
+    border-radius:50%;
+    display:flex;align-items:center;justify-content:center;
+    margin-bottom:16px;
+  }
+  .step-card:nth-child(1) .step-icon{background:#e9f6d8;}
+  .step-card:nth-child(2) .step-icon{background:#f1e3f9;}
+  .step-card:nth-child(3) .step-icon{background:#e9f6d8;}
+  .step-icon svg{width:26px;height:26px;}
+  .step-card h3{font-size:1.15rem;margin-bottom:8px;}
+  .step-card p{margin:0;color:#5a4570;line-height:1.5;}
+
+  /* ---------- Concept / dark band ---------- */
+  .band{
+    background:var(--purple-deep);
+    color:var(--cream);
+    position:relative;
+  }
+  .band .wave-top{
+    position:absolute;top:-1px;left:0;width:100%;
+    transform:rotate(180deg);
+    height:var(--wave-h);line-height:0;
+  }
+  .band-grid{
+    display:grid;
+    grid-template-columns:1fr 1fr;
+    gap:48px;
+    padding:60px 0;
+  }
+  .band-grid h3{
+    color:var(--green-leaf);
+    font-size:1.3rem;
+    margin-bottom:14px;
+  }
+  .band-grid p{line-height:1.65;opacity:.92;}
+
+  /* ---------- Werte ---------- */
+  .werte-list{
+    list-style:none;
+    margin:0 auto;
+    padding:0;
+    max-width:700px;
+  }
+  .werte-list li{
+    display:flex;
+    gap:14px;
+    align-items:flex-start;
+    padding:14px 0;
+    border-bottom:1px solid #ecdcf7;
+    font-size:1.05rem;
+    line-height:1.55;
+  }
+  .werte-list li:last-child{border-bottom:none;}
+  .werte-list svg{flex:none;width:22px;height:22px;margin-top:3px;color:var(--green-leaf);}
+
+  /* ---------- Zauberbox (signature interactive element) ---------- */
+  .zauberbox-section{
+    background:var(--cream);
+    text-align:center;
+  }
+  .zauberbox{
+    max-width:420px;
+    margin:32px auto 0;
+    cursor:pointer;
+    perspective:800px;
+  }
+  .zauberbox-visual{
+    position:relative;
+    width:180px;height:140px;
+    margin:0 auto 18px;
+  }
+  .box-lid{
+    position:absolute;top:0;left:50%;
+    width:190px;height:36px;
+    background:var(--purple-mid);
+    border-radius:8px;
+    transform-origin:left center;
+    transform:translateX(-50%) rotate(0deg);
+    transition:transform .5s cubic-bezier(.34,1.56,.64,1);
+    box-shadow:0 4px 10px rgba(0,0,0,.15);
+    z-index:3;
+  }
+  .zauberbox.open .box-lid{transform:translateX(-50%) rotate(-115deg) translateY(-6px);}
+  .box-body{
+    position:absolute;bottom:0;left:50%;
+    width:170px;height:100px;
+    background:var(--purple-deep);
+    border-radius:6px;
+    transform:translateX(-50%);
+    z-index:2;
+  }
+  .box-heart{
+    position:absolute;
+    bottom:70px;left:50%;
+    transform:translate(-50%,0) scale(0);
+    opacity:0;
+    color:var(--berry);
+    transition:transform .5s ease .15s, opacity .4s ease .15s;
+    z-index:1;
+  }
+  .zauberbox.open .box-heart{
+    transform:translate(-50%,-46px) scale(1);
+    opacity:1;
+  }
+  .zauberbox-label{
+    font-family:'Fredoka',sans-serif;
+    font-weight:600;
+    color:var(--purple-mid);
+    font-size:.95rem;
+  }
+  .zauberbox-caption{
+    max-width:480px;
+    margin:14px auto 0;
+    color:#5a4570;
+    line-height:1.6;
+  }
+
+  /* ---------- Hinweis ---------- */
+  .hinweis{
+    background:#fff;
+    border:2px dashed #d8c2ea;
+    border-radius:22px;
+    padding:32px;
+    max-width:760px;
+    margin:0 auto;
+  }
+  .hinweis h3{color:var(--purple-mid);margin-bottom:12px;font-size:1.2rem;}
+  .hinweis p{margin:0;line-height:1.6;color:#4a3560;}
+
+  /* ---------- Location / footer ---------- */
+  .location{
+    background:var(--purple-deep);
+    color:var(--cream);
+  }
+  .location-grid{
+    display:grid;
+    grid-template-columns:1fr 1fr;
+    gap:40px;
+    padding:64px 0 40px;
+    align-items:start;
+  }
+  .location h2{color:var(--green-leaf);font-size:1.6rem;margin-bottom:18px;}
+  .location-row{
+    display:flex;gap:12px;align-items:flex-start;
+    margin-bottom:10px;
+    line-height:1.5;
+  }
+  .location-row svg{flex:none;width:20px;height:20px;color:var(--green-leaf);margin-top:2px;}
+  footer{
+    text-align:center;
+    padding:28px 0 40px;
+    border-top:1px solid rgba(255,255,255,.15);
+  }
+  footer .script{font-size:1.6rem;color:var(--green-leaf);display:block;}
+  footer .sig{opacity:.85;margin-top:4px;font-size:.95rem;}
+
+  @media (max-width: 800px){
+    .hero .wrap{grid-template-columns:1fr;}
+    .hero-image-wrap{order:-1;max-width:420px;margin:0 auto;}
+    .steps-grid{grid-template-columns:1fr;}
+    .band-grid{grid-template-columns:1fr;padding:48px 0;}
+    .location-grid{grid-template-columns:1fr;padding:48px 0 24px;}
+  }
+  @media (prefers-reduced-motion: reduce){
+    .box-lid,.box-heart,.hero-cta{transition:none;}
+  }
+</style>
+</head>
+<body>
+
+<section class="hero">
+  <div class="wrap">
+    <div>
+      <div class="brand">
+        <span class="leaf-mark">
+          <svg viewBox="0 0 24 24" fill="none" stroke="#8BC53F" stroke-width="2"><path d="M5 12c0-4 3-7 7-7 4 0 7 3 7 7-4 0-7-3-7-7 0 4-3 7-7 7z"/></svg>
+        </span>
+        <span class="brand-name">FAIR&amp;FREI</span>
+      </div>
+      <h1 class="hero-tagline"><span id="hero_tagline">Du entscheidest, was es dir <span class="accent">wert ist</span>.</span></h1>
+      <p class="hero-subtitle" id="hero_subtitle">Bio. Regional. Mit Herz.</p>
+      <a class="hero-cta" href="#finden">
+        Komm vorbei
+        <svg viewBox="0 0 24 24" width="18" height="18" fill="none" stroke="currentColor" stroke-width="2.4"><path d="M5 12h14M13 6l6 6-6 6"/></svg>
+      </a>
+    </div>
+    <div class="hero-image-wrap">
+      <img id="hero_image" src="/images/uploads/bowl-placeholder.jpg" alt="Bio-Bowl im Fair&Frei Café" onerror="this.style.display='none'; this.nextElementSibling.style.display='flex';">
+      <div class="placeholder-note" style="display:none;">Foto folgt — lädt der Küchenchef über die Bearbeitungsseite hoch.</div>
+      <div class="badge-forall">FÜR ALLE<br>unabhängig vom Geldbeutel</div>
+    </div>
+  </div>
+  <div class="wave">
+    <svg viewBox="0 0 1440 100" preserveAspectRatio="none"><path d="M0,40 C360,100 1080,0 1440,50 L1440,100 L0,100 Z" fill="#FBF6EC"/></svg>
+  </div>
+</section>
+
+<section class="section">
+  <div class="wrap">
+    <span class="section-kicker">Unser Leitbild</span>
+    <h2 class="section-heading">Ein Ort der Begegnung</h2>
+    <p class="intro-text" id="intro_text">Das Fair&Frei Café ist ein besonderer Ort der Begegnung. Unser Ziel ist es, Ihnen in einer entspannten und herzlichen Atmosphäre gesunde, ausgewogene und nahrhafte Mahlzeiten anzubieten. Wir kochen täglich frisch aus vorwiegend regionalen Bio-Produkten.</p>
+
+    <div class="steps-grid" id="steps_grid">
+      <div class="step-card">
+        <div class="step-icon"><svg viewBox="0 0 24 24" fill="none" stroke="#6B3FA0" stroke-width="2"><path d="M12 21s-7-4.35-9.5-8.5C.8 9 2 5 6 5c2 0 3.5 1 4 2.5C10.5 6 12 5 14 5c4 0 5.2 4 3.5 7.5C15 16.65 12 21 12 21z"/></svg></div>
+        <h3>Keine festen Preise.</h3>
+        <p>Du entscheidest selbst, was du zahlst.</p>
+      </div>
+      <div class="step-card">
+        <div class="step-icon"><svg viewBox="0 0 24 24" fill="none" stroke="#6B3FA0" stroke-width="2"><path d="M12 3l9 4-9 4-9-4 9-4zM3 12l9 4 9-4M3 17l9 4 9-4"/></svg></div>
+        <h3>Spende beim Gehen.</h3>
+        <p>Eine anonyme Spende in unsere Zauberbox.</p>
+      </div>
+      <div class="step-card">
+        <div class="step-icon"><svg viewBox="0 0 24 24" fill="none" stroke="#6B3FA0" stroke-width="2"><circle cx="9" cy="8" r="3"/><path d="M2 20c0-3.3 3.1-6 7-6s7 2.7 7 6M16 8a3 3 0 100-6M23 20c0-2.6-2-4.8-5-5.6"/></svg></div>
+        <h3>Gemeinschaft &amp; Vertrauen.</h3>
+        <p>Wir glauben an ein Miteinander auf Augenhöhe.</p>
+      </div>
+    </div>
+  </div>
+</section>
+
+<section class="band">
+  <div class="wave-top">
+    <svg viewBox="0 0 1440 100" preserveAspectRatio="none"><path d="M0,40 C360,100 1080,0 1440,50 L1440,100 L0,100 Z" fill="#4A2472"/></svg>
+  </div>
+  <div class="wrap band-grid">
+    <div>
+      <h3 id="concept_title">Unser Konzept</h3>
+      <p id="concept_text">Fair&Frei ist ein Gemeinschaftsprojekt, das zum Großteil von Freiwilligen getragen wird. Unsere Philosophie ist es, Ihnen die Entscheidung zu überlassen, was Ihnen unsere Speisen und Getränke wert sind.</p>
+    </div>
+    <div>
+      <h3 id="teilhabe_title">Teilhabe für alle</h3>
+      <p id="teilhabe_text">Es ist unser Herzensanliegen, dass jeder Mensch Zugang zu gutem Essen hat – völlig unabhängig von der persönlichen finanziellen Situation.</p>
+    </div>
+  </div>
+</section>
+
+<section class="section">
+  <div class="wrap">
+    <span class="section-kicker">Was uns leitet</span>
+    <h2 class="section-heading" id="werte_title">Unsere Werte</h2>
+    <ul class="werte-list" id="werte_list" style="margin-top:36px;">
+      <li><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M20 6L9 17l-5-5"/></svg><span>In unserem täglichen Handeln lassen wir uns von unserem Gewissen und dem Glauben an das Gute leiten.</span></li>
+      <li><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M20 6L9 17l-5-5"/></svg><span>Wir achten unsere Erde und sind dankbar für alles, was sie uns schenkt.</span></li>
+      <li><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M20 6L9 17l-5-5"/></svg><span>Wir möchten aktiv die Veränderung sein, die wir uns für diese Welt wünschen.</span></li>
+    </ul>
+  </div>
+</section>
+
+<section class="section zauberbox-section">
+  <div class="wrap">
+    <span class="section-kicker">Neugierig?</span>
+    <h2 class="section-heading">Die Zauberbox</h2>
+    <div class="zauberbox" id="zauberbox" role="button" tabindex="0" aria-label="Zauberbox öffnen">
+      <div class="zauberbox-visual">
+        <div class="box-heart">
+          <svg viewBox="0 0 24 24" width="34" height="34" fill="currentColor"><path d="M12 21s-7-4.35-9.5-8.5C.8 9 2 5 6 5c2 0 3.5 1 4 2.5C10.5 6 12 5 14 5c4 0 5.2 4 3.5 7.5C15 16.65 12 21 12 21z"/></svg>
+        </div>
+        <div class="box-lid"></div>
+        <div class="box-body"></div>
+      </div>
+      <span class="zauberbox-label">Zum Öffnen tippen</span>
+    </div>
+    <p class="zauberbox-caption">Beim Verlassen des Cafés kannst du eine anonyme Spende in unsere Zauberbox an der Theke geben — so viel oder so wenig, wie es dir wert war.</p>
+  </div>
+</section>
+
+<section class="section">
+  <div class="wrap">
+    <div class="hinweis">
+      <h3 id="hinweis_title">Wichtiger Hinweis</h3>
+      <p id="hinweis_text">Da wir offiziell als Verein und nicht als gewerbliches Unternehmen organisiert sind, bitten wir Sie höflich, ein kurzes Mitgliedsformular auszufüllen. Es werden nur die nötigsten Angaben benötigt und es fällt selbstverständlich keine Mitgliedsgebühr an. Fühlen Sie sich bei uns ganz wie zu Hause und genießen Sie die Zeit!</p>
+    </div>
+  </div>
+</section>
+
+<section class="location" id="finden">
+  <div class="wrap location-grid">
+    <div>
+      <h2>So finden Sie uns</h2>
+      <div class="location-row">
+        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M12 21s-6-5.686-6-10a6 6 0 1112 0c0 4.314-6 10-6 10z"/><circle cx="12" cy="11" r="2"/></svg>
+        <span>
+          <span id="address_line1">Wengen 15</span><br>
+          <span id="address_line2">87534 Oberstaufen</span>
+        </span>
+      </div>
+      <div class="location-row">
+        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M5 12c0-4 3-7 7-7 4 0 7 3 7 7-4 0-7-3-7-7 0 4-3 7-7 7z"/></svg>
+        <span id="address_line3">Im Fairwurzel Bio-Markt</span>
+      </div>
+      <div class="location-row">
+        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><circle cx="12" cy="12" r="9"/></svg>
+        <span id="address_line4">Neben dem Knechtenhofen Bahn-Tunnel</span>
+      </div>
+      <div class="location-row">
+        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><circle cx="12" cy="12" r="9"/></svg>
+        <span id="address_line5">Neben der Eule</span>
+      </div>
+    </div>
+    <div>
+      <iframe title="Karte Fair&Frei Café" width="100%" height="240" style="border:0;border-radius:18px;" loading="lazy" src="https://www.google.com/maps?q=Wengen+15,+87534+Oberstaufen&output=embed"></iframe>
+    </div>
+  </div>
+  <footer>
+    <span class="script" id="footer_text">Liebe, Frieden und Freude</span>
+    <span class="sig" id="footer_signature">Ihr Küchenchef Siniša Shyam und das gesamte Team</span>
+  </footer>
+</section>
+
+<script>
+  // Zauberbox interaction (signature element)
+  const box = document.getElementById('zauberbox');
+  function toggleBox(){ box.classList.toggle('open'); }
+  box.addEventListener('click', toggleBox);
+  box.addEventListener('keydown', e => { if(e.key==='Enter'||e.key===' '){ e.preventDefault(); toggleBox(); }});
+
+  // Pull editable content from content/site.json so Decap CMS edits
+  // show up without touching this file.
+  fetch('/content/site.json', {cache:'no-store'})
+    .then(r => r.ok ? r.json() : null)
+    .then(data => {
+      if(!data) return;
+      const setText = (id, val) => { if(val !== undefined){ const el = document.getElementById(id); if(el) el.textContent = val; } };
+      setText('hero_subtitle', data.hero_subtitle);
+      setText('intro_text', data.intro_text);
+      setText('concept_title', data.concept_title);
+      setText('concept_text', data.concept_text);
+      setText('teilhabe_title', data.teilhabe_title);
+      setText('teilhabe_text', data.teilhabe_text);
+      setText('werte_title', data.werte_title);
+      setText('hinweis_title', data.hinweis_title);
+      setText('hinweis_text', data.hinweis_text);
+      setText('address_line1', data.address_line1);
+      setText('address_line2', data.address_line2);
+      setText('address_line3', data.address_line3);
+      setText('address_line4', data.address_line4);
+      setText('address_line5', data.address_line5);
+      setText('footer_text', data.footer_text);
+      setText('footer_signature', data.footer_signature);
+
+      if(data.hero_image){
+        const img = document.getElementById('hero_image');
+        img.src = data.hero_image;
+        img.style.display = '';
+      }
+      if(Array.isArray(data.werte_items)){
+        const list = document.getElementById('werte_list');
+        list.innerHTML = data.werte_items.map(item => `<li><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M20 6L9 17l-5-5"/></svg><span>${item}</span></li>`).join('');
+      }
+      if(Array.isArray(data.steps) && data.steps.length === 3){
+        const cards = document.querySelectorAll('#steps_grid .step-card');
+        data.steps.forEach((s,i) => {
+          if(cards[i]){
+            cards[i].querySelector('h3').textContent = s.title;
+            cards[i].querySelector('p').textContent = s.text;
+          }
+        });
+      }
+    })
+    .catch(() => { /* fall back silently to the hardcoded German copy already in the HTML */ });
+</script>
+
+</body>
+</html>
